@@ -20,7 +20,7 @@
 - データの送受信にはJSONを使用している
 
 ## 使用方法
-- エントリーポイントはblockchain.go
+### エントリーポイントはblockchain.go
 
 `Enter your name`
 
