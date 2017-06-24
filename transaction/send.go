@@ -11,7 +11,7 @@ func Send() {
 	rand.Seed(time.Now().UnixNano())
 	num := rand.Intn(1000)
 	if num == 1 && len(data.AllNode.List) > 3 { //ノード数が4以上の時取引をする
-		random := rand.Intn(len(data.AllNode.List) - 1)
+		random := rand.Intn(len(data.AllNode.List))
 		to := data.AllNode.List[random]
 		layout := "Mon Jan 2 15:04:05 MST 2006"
 		times := time.Now().Format(layout)

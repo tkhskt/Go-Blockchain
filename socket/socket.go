@@ -69,7 +69,6 @@ func handleClient(conn net.Conn) {
 		transaction.Transaction(js)
 	}
 	if cpBl >= 0 && cpNo < 0 && cpBlLi < 0 { //Blockデータの受け取り
-		//fmt.Println(message)
 		jsonBytes := ([]byte)(message)
 		var js data.Block
 		if err := json.Unmarshal(jsonBytes, &js); err != nil {
@@ -92,7 +91,6 @@ func handleClient(conn net.Conn) {
 					}
 				}
 			}
-
 			fmt.Println(js)
 		}
 	}

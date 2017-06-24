@@ -50,12 +50,21 @@ func Mining(d []data.Trans) {
 		hash = sha256.Sum256([]byte(str + nonce))
 		var bar []byte = hash[:]
 		bin := binary.BigEndian.Uint64(bar)
-		if bin < 10000000000000000 { //ハッシュ値10000000000000000以下なら成功
+		key := true
+		if bin < 1000000000000000 { //ハッシュ値1000000000000000以下なら成功
 			newbc.Nonce = nonce
 			newbc.Hash = strconv.FormatUint(bin, 10)
 			if data.AllBlock.List[len(data.AllBlock.List)-1].Number+1 == newbc.Number { //自分がマイニングしたナンバーのデータがほかのノードによって既にマイニング済みでなかった場合
 				fmt.Println(bin)
-				n := rand.Intn(len(data.AllNode.List) - 1)
+				n := 0
+				for key {
+					rand.Seed(time.Now().UnixNano())
+					n = rand.Intn(len(data.AllNode.List) - 1)
+					if data.AllNode.List[n].Name != data.MyNode.Name {
+						key = false
+					}
+					time.Sleep(time.Microsecond * 3)
+				}
 				data.Dtype <- 2
 				data.BlockSolo <- newbc
 				data.PortNum <- data.AllNode.List[n].Port
