@@ -51,8 +51,6 @@ var AllTrans = TransList{Datatype: "TransList", List: a}   //すべてのトラ�
 var AllBlock = BlockChain{Datatype: "BlockChain", List: b} //すべてのブロックを保存する
 var AllNode = NodeList{Datatype: "NodeList", List: c}      //自分以外のすべてのノードを保存する
 
-/*----------------クライアント側としてのポート関連の設定----------------*/
-
 var PortNum = make(chan string, 10) //Client()で送信する送信先のポート番号
 var Dtype = make(chan int, 10)      //Client()で送信するデータのタイプ(6パターン)
 
