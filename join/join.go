@@ -3,6 +3,8 @@ package join
 import (
 	"fmt"
 
+	"time"
+
 	"../data"
 )
 
@@ -26,7 +28,7 @@ func Join(nd data.Node) {
 		data.Dtype <- 4
 		data.PortNum <- nd.Port
 	}
-
+	time.Sleep(time.Millisecond * 5) //リスト送信処理中にAllNode.Listに新ノードの情報が格納されないようにする
 	data.AllNode.List = append(data.AllNode.List, nd)
 
 }

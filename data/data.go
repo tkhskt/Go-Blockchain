@@ -11,7 +11,7 @@ type Trans struct { //トランザクションデータ
 type Block struct { //ブロック
 	Datatype    string   `json:"datatype"`
 	Number      int      `json:"number"`      //ブロックナンバー
-	Transaction int      `json:"transaction"` //トランザクションデータを格納するスライス []Trans
+	Transaction []Trans  `json:"transaction"` //トランザクションデータを格納するスライス []Trans
 	Time        string   `json:"time"`        //タイムスタンプ
 	PrevHash    string   `json:"prevhash"`    //前のブロックのハッシュ
 	Nonce       string   `json:"nonce"`       //ナンス

@@ -33,7 +33,7 @@ func main() {
 		times := time.Now().Format(layout)
 		//var dt = []data.Trans{data.Trans{Datatype: "Trans", ToCoin: "nil", FromCoin: "nil", Sum: 0, Time: times}}
 		var ph = []string{"nil", "nil", "nil"}
-		dummyblock := data.Block{Datatype: "Block", Number: 1, Transaction: 0, Time: times, PrevHash: "000000", Nonce: "000000", Hash: "000000", Sign: ph, Miner: "nil"}
+		dummyblock := data.Block{Datatype: "Block", Number: 1, Transaction: []data.Trans{}, Time: times, PrevHash: "000000", Nonce: "000000", Hash: "000000", Sign: ph, Miner: "nil"}
 		data.AllBlock.List = append(data.AllBlock.List, dummyblock)
 	} else if nodetype == 2 {
 		fmt.Println("Request Node")

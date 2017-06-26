@@ -23,24 +23,24 @@ func RandString1(n int) string {
 
 func Mining(d []data.Trans) {
 	fmt.Println("----------------------------\nStart mining")
+	fmt.Println(data.AllNode.List)
 	now := time.Now()
 	layout := "Mon Jan 2 15:04:05 MST 2006"
-	//transes := []data.Trans{}
+	transes := []data.Trans{}
 	bc := data.AllBlock.List[len(data.AllBlock.List)-1] //この段階での最新ブロック
 	transData := ""                                     //文字列化したトランザクションデータ
-	count := 0
 
 	for _, v := range d {
 		tm, _ := time.Parse(layout, v.Time)
 		duration := now.Sub(tm)
 		if 1 < duration.Minutes() && duration.Minutes() <= 2 { //2分前から1分前まで      duration.Hours() == 0 && 1 < duration.Minutes() &&
 			transData = transData + v.ToCoin + v.FromCoin + v.Time
-			//transes = append(transes, v)
-			count = count + 1
+			transes = append(transes, v)
+
 		}
 	}
 	empsign := []string{}
-	newbc := data.Block{Datatype: "Block", Number: bc.Number + 1, Transaction: count, Time: now.Format(layout), PrevHash: bc.Hash, Nonce: "", Hash: "", Sign: empsign, Miner: data.MyNode.Name}
+	newbc := data.Block{Datatype: "Block", Number: bc.Number + 1, Transaction: transes, Time: now.Format(layout), PrevHash: bc.Hash, Nonce: "", Hash: "", Sign: empsign, Miner: data.MyNode.Name}
 
 	str := newbc.Datatype + transData + newbc.Time + newbc.PrevHash + newbc.Miner
 	var hash [32]byte

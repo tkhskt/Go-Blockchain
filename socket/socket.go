@@ -46,12 +46,19 @@ func handleClient(conn net.Conn) {
 	defer conn.Close()
 
 	conn.SetReadDeadline(time.Now().Add(10 * time.Second))
-	//fmt.Println("client accept!")
+	message := ""
 	messageBuf := make([]byte, 1024)
-	messageLen, err := conn.Read(messageBuf)
-	checkError(err)
+	for {
+		n, err := conn.Read(messageBuf)
+		if n == 0 {
+			break
+		}
+		if err != nil {
+			fmt.Printf("Read error: %s\n", err)
+		}
+		message = message + string(messageBuf[:n])
+	}
 
-	message := string(messageBuf[:messageLen])
 	/*-----------------------データのパース--------------------*/
 	cpTr := strings.Index(message, "Trans")
 	cpBl := strings.Index(message, "Block")
@@ -131,9 +138,6 @@ func handleClient(conn net.Conn) {
 		data.AllNode = js
 		fmt.Println(js)
 	}
-
-	/*---------------------------------------------------------*/
-
 }
 
 // Client はクライアント側

@@ -17,9 +17,6 @@ func listcheck(dt data.Node, bc data.Block) bool {
 			}
 		}
 	}
-	if dt.Name == data.MyNode.Name { //ランダムに選ばれたノードが自分だった場合
-		return false
-	}
 	if bc.Miner == dt.Name { //ランダムに選ばれたノードがマイナーだった場合
 		return false
 	}
@@ -45,10 +42,13 @@ func Sign(bc data.Block) { //署名
 
 	if len(bc.Sign) == 3 { //三番目に署名した人が全員に送信
 		for _, v := range data.AllNode.List {
-			if v.Name != data.MyNode.Name {
-				data.Dtype <- 2
-				data.BlockSolo <- bc
-				data.PortNum <- v.Port
+			data.Dtype <- 2
+			data.BlockSolo <- bc
+			data.PortNum <- v.Port
+		}
+		for i := 0; i < len(data.AllNode.List); i++ {
+			if bc.Miner == data.AllNode.List[i].Name {
+				data.AllNode.List[i].Value = data.AllNode.List[i].Value + 10
 			}
 		}
 		data.AllBlock.List = append(data.AllBlock.List, bc)
