@@ -43,13 +43,9 @@ type NodeList struct {
 
 var MyNode = Node{Datatype: "Node", Name: "", Value: 10, Port: "", Sign: ""} //自分のノード情報
 
-var a []Trans
-var b []Block
-var c []Node
-
-var AllTrans = TransList{Datatype: "TransList", List: a}   //すべてのトランザクションを保存する
-var AllBlock = BlockChain{Datatype: "BlockChain", List: b} //すべてのブロックを保存する
-var AllNode = NodeList{Datatype: "NodeList", List: c}      //自分以外のすべてのノードを保存する
+var AllTrans = TransList{Datatype: "TransList", List: []Trans{}}   //すべてのトランザクションを保存する
+var AllBlock = BlockChain{Datatype: "BlockChain", List: []Block{}} //すべてのブロックを保存する
+var AllNode = NodeList{Datatype: "NodeList", List: []Node{}}       //自分以外のすべてのノードを保存する
 
 var PortNum = make(chan string, 10) //Client()で送信する送信先のポート番号
 var Dtype = make(chan int, 10)      //Client()で送信するデータのタイプ(6パターン)

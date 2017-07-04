@@ -21,5 +21,4 @@ func Transaction(d data.Trans) {
 	data.AllTrans.List = append(data.AllTrans.List, d)
 	slparse.Parse(1)
 	//fmt.Println(data.AllTrans)
-
 }
