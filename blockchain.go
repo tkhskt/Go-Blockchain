@@ -51,9 +51,9 @@ func main() {
 	}
 	//Server()とClient()は並列に処理しないと正常に動作しない！！
 	now := time.Now().Minute()
-	for { //終了しないための無限ループ
+	for { //mainプロセスが終了しないための無限ループ
 		fornow := time.Now().Minute() //1分おきにマイニングを実行
-		if fornow != now {
+		if fornow != now && len(data.AllNode.List) > 3 {
 			sn <- 3
 			<-sn
 			go mining.Mining(data.AllTrans.List)
