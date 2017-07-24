@@ -59,7 +59,9 @@ func main() {
 			go mining.Mining(data.AllTrans.List)
 			now = fornow
 		}
-		transaction.Send()
+		if len(data.AllNode.List) > 3 {
+			transaction.Send()
+		}
 		time.Sleep(time.Nanosecond * 10)
 	}
 
