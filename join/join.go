@@ -5,7 +5,7 @@ import (
 
 	"time"
 
-	"../data"
+	"github.com/Go-Blockchain/data"
 )
 
 func Join(nd data.Node) {

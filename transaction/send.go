@@ -4,7 +4,7 @@ import (
 	"math/rand"
 	"time"
 
-	"../data"
+	"github.com/Go-Blockchain/data"
 )
 
 func Send() {

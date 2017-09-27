@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"time"
 
-	"./data"
-	"./mining"
-	"./socket"
-	"./transaction"
+	"github.com/Go-Blockchain/data"
+	"github.com/Go-Blockchain/mining"
+	"github.com/Go-Blockchain/socket"
+	"github.com/Go-Blockchain/transaction"
 )
 
 var nd []data.Node

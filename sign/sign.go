@@ -5,8 +5,8 @@ import (
 	"math/rand"
 	"time"
 
-	"../data"
-	"../slparse"
+	"github.com/Go-Blockchain/data"
+	"github.com/Go-Blockchain/slparse"
 )
 
 func listcheck(dt data.Node, bc data.Block) bool {

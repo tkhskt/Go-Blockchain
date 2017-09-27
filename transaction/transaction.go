@@ -1,8 +1,8 @@
 package transaction
 
 import (
-	"../data"
-	"../slparse"
+	"github.com/Go-Blockchain/data"
+	"github.com/Go-Blockchain/slparse"
 )
 
 func Transaction(d data.Trans) {
