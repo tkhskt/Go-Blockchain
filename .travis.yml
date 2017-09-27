@@ -1,0 +1,12 @@
+language: go
+go: 
+ - go: 1.6.3
+ - go: 1.7.5
+ - go: 1.8
+ - master
+
+install:
+- go get -t ./...
+
+script:
+- go test -v ./...
