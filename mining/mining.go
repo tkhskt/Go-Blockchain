@@ -8,7 +8,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/Go-Blockchain/data"
+	"github.com/gericass/Go-Blockchain/data"
 )
 
 var rs1Letters = []rune("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ")

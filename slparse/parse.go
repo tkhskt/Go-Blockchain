@@ -4,7 +4,7 @@ import (
 	"sort"
 	"time"
 
-	"github.com/Go-Blockchain/data"
+	"github.com/gericass/Go-Blockchain/data"
 )
 
 func Parse(a int) {

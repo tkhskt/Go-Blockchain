@@ -8,11 +8,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/Go-Blockchain/data"
-	"github.com/Go-Blockchain/join"
-	"github.com/Go-Blockchain/sign"
-	"github.com/Go-Blockchain/slparse"
-	"github.com/Go-Blockchain/transaction"
+	"github.com/gericass/Go-Blockchain/data"
+	"github.com/gericass/Go-Blockchain/join"
+	"github.com/gericass/Go-Blockchain/sign"
+	"github.com/gericass/Go-Blockchain/slparse"
+	"github.com/gericass/Go-Blockchain/transaction"
 )
 
 type un struct {
