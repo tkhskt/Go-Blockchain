@@ -50,7 +50,7 @@ func main() {
 	now := time.Now().Minute()
 	for { //mainプロセスが終了しないための無限ループ
 		fornow := time.Now().Minute() //1分おきにマイニングを実行
-		if fornow != now && len(data.AllNode.List) > 3 {
+		if fornow != now && len(data.AllNode.List) > 2 { //ノード数４以上でマイニング開始
 			sn <- 3
 			<-sn
 			go mining.Mining(data.AllTrans.List)
