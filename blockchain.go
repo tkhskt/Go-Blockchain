@@ -8,6 +8,7 @@ import (
 	"github.com/gericass/Go-Blockchain/mining"
 	"github.com/gericass/Go-Blockchain/socket"
 	"github.com/gericass/Go-Blockchain/transaction"
+	"flag"
 )
 
 var nd []data.Node
@@ -19,14 +20,10 @@ var nodetype int
 var joinreq string
 
 func main() {
-	fmt.Println("Enter your name")
-	fmt.Scan(&data.MyNode.Name)
-	fmt.Println("--------------------------------")
-	fmt.Println("Enter your port")
-	fmt.Scan(&data.MyNode.Port)
-	fmt.Println("--------------------------------")
-	fmt.Println("Are you first?\n(1)Yes (2)No")
-	fmt.Scan(&nodetype)
+	flag.StringVar(&data.MyNode.Name,"n","node","node name")
+	flag.StringVar(&data.MyNode.Port,"p","8888","port")
+	flag.IntVar(&nodetype,"t",2,"node type")
+	flag.Parse()
 
 	if nodetype == 1 { //最初のノードだった場合
 		layout := "Mon Jan 2 15:04:05 MST 2006"
