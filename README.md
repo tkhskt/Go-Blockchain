@@ -1,4 +1,4 @@
-# Go-Blockchain
+# Go-Blockchain [![Go Report Card](https://goreportcard.com/badge/github.com/gericass/go-blockchain)](https://goreportcard.com/report/github.com/gericass/go-blockchain)
 ## Go言語によるブロックチェーンシミュレーター
 ブロックチェーンの学習を目的としたブロックチェーンのシミュレーターです
 
